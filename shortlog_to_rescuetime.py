@@ -12,11 +12,11 @@ import keyring
 import requests
 
 
-class ShortDescription(UserString):
+class ShortDescription(str):
     """A string shortened to at most 255 characters."""
 
-    def __init__(self, description):
-        self.data = description[:255]
+    def __new__(cls, description):
+        return str.__new__(cls, description[:255])
 
 
 @dataclass(frozen=True)
@@ -73,9 +73,7 @@ def post_highlight(highlight: Highlight, api_key=str) -> ApiResponse:
         params={
             "key": api_key,
             "highlight_date": highlight.date.strftime("%Y-%m-%d"),
-            # Call str on the description because requests seems to
-            # otherwise only use the last character.
-            "description": str(highlight.description),
+            "description": highlight.description,
         },
     )
     response.raise_for_status()
