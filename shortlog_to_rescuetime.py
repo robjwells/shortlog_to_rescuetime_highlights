@@ -19,13 +19,13 @@ class ShortDescription(UserString):
         self.data = description[:255]
 
 
-@dataclass
+@dataclass(frozen=True)
 class Highlight:
     date: datetime
     description: ShortDescription
 
 
-@dataclass
+@dataclass(frozen=True)
 class ApiResponse:
     message: str
 
