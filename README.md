@@ -4,7 +4,7 @@ Shortlog to RescueTime highlights
 This is a pretty basic Python script that scrapes "shortlog" files and uploads
 each entry to RescueTime as a highlight.
 
-The shortlog files have a pretty basic structure:
+The shortlog files have a simple structure:
 
 ```
 2018-05-08 20:29:19 | Cleared through emails
