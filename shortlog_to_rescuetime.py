@@ -62,7 +62,7 @@ def parse_log_lines(lines: List[str]) -> List[Highlight]:
             date=datetime.strptime(date, "%Y-%m-%d %H:%M:%S"),
             description=ShortDescription(description),
         )
-        for date, description in [line.split(" | ") for line in lines]
+        for date, description in [line.split(" | ", maxsplit=1) for line in lines]
     ]
 
 
