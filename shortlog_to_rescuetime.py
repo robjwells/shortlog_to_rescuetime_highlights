@@ -4,7 +4,6 @@ import argparse
 from collections import UserString
 from dataclasses import dataclass
 from datetime import datetime, timedelta
-import json
 from pathlib import Path
 import sys
 from typing import List
