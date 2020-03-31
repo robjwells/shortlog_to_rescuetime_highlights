@@ -43,7 +43,6 @@ def main(api_key: str, shortlog_directory: Path, date: datetime) -> None:
     highlights = parse_log_lines(log_lines)
     for h in highlights:
         try:
-            # print(h)
             response = post_highlight(h, api_key)
             print(f"{response.message} ({h.description})")
         except requests.HTTPError as exc:
